@@ -1,5 +1,5 @@
 """
-WSGI config for USBOQUET_SHOP_API project.
+WSGI config for BOUQUET_SHOP_API project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'USBOQUET_SHOP_API.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BOUQUET_SHOP_API.settings')
 
 application = get_wsgi_application()
