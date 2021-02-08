@@ -6,6 +6,7 @@ from string import ascii_lowercase
 from django.db.models import Count
 from rest_framework import generics, status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 from categories.models import Category
 from fileuploads.models import ProductImage
@@ -28,10 +29,11 @@ class ProductListView(generics.ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         serializer_context = self.get_serializer_context()
-        serializer_context['request'] = request
+        serializer_context['request'] = request.data
         page = self.paginate_queryset(self.get_queryset())
         serialized_data = self.serializer_class(page, many=True, context=serializer_context)
-        return self.get_paginated_response(serialized_data.data)
+        data = self.get_paginated_response(serialized_data)
+        return data
 
     def get_renderer_context(self):
         renderer_context = super(ProductListView, self).get_renderer_context()
@@ -81,7 +83,7 @@ class ProductListView(generics.ListCreateAPIView):
         product = serializer.save()
 
         # add expects any number of argument, each one should be the data type expected
-        # if we want to pass a list, we have to expaned it, i.e from [tag1, tag2, tag3] to add(tag1, taq2, tag3)
+        # if we want to pass a list, we have to expand it, i.e from [tag1, tag2, tag3] to add(tag1, taq2, tag3)
         # that is achieved through `*`
         product.tags.add(*tags)
         product.categories.add(*categories)

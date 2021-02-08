@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/USBOQUET-SHOP-API.iml" filepath="$PROJECT_DIR$/.idea/USBOQUET-SHOP-API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../USBOUQUET-SHOP-API/.idea/USBOQUET-SHOP-API.iml" filepath="$PROJECT_DIR$/../USBOUQUET-SHOP-API/.idea/USBOQUET-SHOP-API.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,3 @@
-# Not working
 from rest_framework import serializers
 
 from categories.serializers import CategoryIdAndNameSerializer
@@ -19,7 +18,7 @@ class ProductListSummarySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'slug', 'price', 'stock', 'comments_count', 'tags', 'image_urls', 'categories']
 
     def get_comments_count(self, product):
-        return getattr(product, 'comments__count', None)
+        return getattr(product, 'comments_count', None)
 
     def get_image_urls(self, product):
         return [x.file_path for x in product.images.all()]
@@ -42,4 +41,4 @@ class ProductDetailsSerializer(serializers.ModelSerializer):
 class ProductElementalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['name', 'id', 'slug', ]
+        fields = ['name', 'id', 'slug']

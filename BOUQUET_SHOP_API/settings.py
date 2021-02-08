@@ -38,6 +38,14 @@ INSTALLED_APPS = [
 
     # My App
     'users',
+    'products',
+    'categories',
+    'tags',
+    'fileuploads',
+    'shared',
+    'comments',
+    'addresses',
+    'orders',
 
     # 3rd party apss
     'corsheaders',

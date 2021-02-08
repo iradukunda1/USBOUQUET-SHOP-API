@@ -1,6 +1,5 @@
 from rest_framework.validators import UniqueValidator
 from rest_framework import serializers
-
 from users.models import AppUser
 
 

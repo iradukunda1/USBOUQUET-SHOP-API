@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from rest_framework import permissions
 from rest_framework.permissions import BasePermission
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
@@ -21,7 +20,6 @@ def jwt_payload_handler(user):
         'user_id': user.pk,
         'username': user.username,
         'email': user.email,
-        "iss": "http://melardev.com",
         'roles': ['ROLE_ADMIN' if user.is_staff else 'ROLE_USER'],
         'exp': datetime.utcnow() + api_settings.JWT_EXPIRATION_DELTA,
         # 'orig_iat': timegm(datetime.utcnow().utctimetuple())
